@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Play } from 'lucide-react';
 
 interface HeroProps {
   language: string;
@@ -9,22 +9,25 @@ interface HeroProps {
 const Hero = ({ language }: HeroProps) => {
   const content = {
     en: {
-      tagline: "Crafted Excellence",
-      subtitle: "From Baltic Heritage",
-      description: "Discover our premium collection of Grappa, Likeriai, and Limoncello - where tradition meets luxury in every bottle.",
-      cta: "Explore Collection"
+      tagline: "BALTICA",
+      subtitle: "Heritage of Excellence",
+      description: "Discover the pinnacle of Baltic luxury. Three masterpieces born from tradition, perfected through generations.",
+      cta: "Explore Collection",
+      videoCta: "Watch Story"
     },
     lt: {
-      tagline: "Išskirtinis Meistriškumas",
-      subtitle: "Iš Baltijos Paveldo",
-      description: "Atraskite mūsų premium Grappa, Likerių ir Limoncello kolekciją - kur tradicijos susitinka su prabanga kiekvienoje butelyje.",
-      cta: "Tyrinėti Kolekciją"
+      tagline: "BALTICA",
+      subtitle: "Išskirtingumo Paveldas",
+      description: "Atraskite Baltijos prabangos viršūnę. Trys šedevrai, gimę iš tradicijų, tobulinti per kartas.",
+      cta: "Tyrinėti Kolekciją",
+      videoCta: "Žiūrėti Istoriją"
     },
     ru: {
-      tagline: "Мастерство Совершенства",
-      subtitle: "Из Балтийского Наследия",
-      description: "Откройте для себя нашу премиальную коллекцию Граппы, Ликеров и Лимончелло - где традиции встречаются с роскошью в каждой бутылке.",
-      cta: "Исследовать Коллекцию"
+      tagline: "BALTICA",
+      subtitle: "Наследие Совершенства",
+      description: "Откройте вершину балтийской роскоши. Три шедевра, рожденные из традиций, усовершенствованные поколениями.",
+      cta: "Исследовать Коллекцию",
+      videoCta: "Смотреть Историю"
     }
   };
 
@@ -32,51 +35,77 @@ const Hero = ({ language }: HeroProps) => {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video/Poster Effect */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-burgundy/40 to-emerald/30 dark:from-black/80 dark:via-burgundy/60 dark:to-emerald/50">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?q=80&w=4896&h=3264')] bg-cover bg-center opacity-30 dark:opacity-20"></div>
+      {/* Premium Background */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-midnight via-deep-navy to-charcoal"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?q=80&w=4000&h=2667')] bg-cover bg-center opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-transparent to-midnight/50"></div>
       </div>
 
-      {/* Floating Elements */}
+      {/* Floating Luxury Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-gold/30 rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-rich-gold/40 rounded-full animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animationDelay: `${i * 0.3}s`,
+              animationDuration: `${3 + Math.random() * 2}s`
             }}
           />
         ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center max-w-4xl px-6 animate-fade-in">
-        <h1 className="font-serif text-6xl md:text-8xl font-bold text-white mb-6 tracking-wide">
+      {/* Hero Content */}
+      <div className="relative z-10 text-center max-w-5xl px-6 animate-fade-in">
+        <div className="mb-8">
+          <div className="inline-block px-6 py-2 border border-rich-gold/30 rounded-full mb-8">
+            <span className="text-rich-gold text-sm font-medium tracking-[0.3em] uppercase">
+              Est. 1892
+            </span>
+          </div>
+        </div>
+        
+        <h1 className="font-display text-7xl md:text-9xl font-bold text-pearl mb-4 tracking-tight">
           {text.tagline}
         </h1>
-        <h2 className="font-serif text-2xl md:text-4xl text-gold mb-8 tracking-wider">
+        
+        <h2 className="font-serif text-3xl md:text-5xl text-luxury-gradient mb-8 font-light tracking-wide">
           {text.subtitle}
         </h2>
-        <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+        
+        <p className="text-xl md:text-2xl text-platinum/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
           {text.description}
         </p>
         
-        <Button
-          size="lg"
-          className="bg-gradient-to-r from-gold to-amber-400 hover:from-amber-400 hover:to-gold text-black font-semibold px-8 py-4 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-gold/25 group"
-        >
-          {text.cta}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 skew-x-12 animate-shimmer"></div>
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <Button
+            size="lg"
+            className="bg-luxury-gradient hover:scale-105 text-midnight font-semibold px-12 py-6 text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-rich-gold/25 relative overflow-hidden group"
+          >
+            {text.cta}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 skew-x-12 animate-luxury-shimmer"></div>
+          </Button>
+          
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-2 border-rich-gold/50 text-rich-gold hover:bg-rich-gold/10 hover:border-rich-gold font-semibold px-12 py-6 text-lg transition-all duration-300 hover:scale-105 bg-transparent"
+          >
+            <Play className="w-5 h-5 mr-3" />
+            {text.videoCta}
+          </Button>
+        </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-8 h-8 text-gold" />
+      {/* Premium Scroll Indicator */}
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2">
+        <div className="flex flex-col items-center animate-bounce">
+          <div className="w-px h-16 bg-gradient-to-b from-transparent to-rich-gold mb-2"></div>
+          <ChevronDown className="w-6 h-6 text-rich-gold" />
+        </div>
       </div>
     </section>
   );

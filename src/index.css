@@ -3,10 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Premium Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* Import Ultra-Premium Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -49,53 +47,56 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    /* Custom Luxury Colors */
-    --burgundy: 128 100% 8%;
-    --burgundy-900: 128 100% 4%;
-    --gold: 45 93% 58%;
-    --emerald: 158 64% 20%;
-    --emerald-900: 158 64% 10%;
-    --ivory: 48 25% 95%;
-    --champagne: 48 29% 88%;
-    --soft-gray: 210 11% 85%;
+    /* Premium Luxury Colors */
+    --deep-navy: 220 25% 8%;
+    --rich-gold: 45 100% 70%;
+    --warm-gold: 38 92% 65%;
+    --platinum: 240 5% 85%;
+    --pearl: 60 9% 96%;
+    --charcoal: 220 13% 18%;
+    --bronze: 30 67% 40%;
+    --cream: 45 25% 95%;
+    --midnight: 220 30% 5%;
+    --silver: 240 4% 75%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 25% 8%;
+    --foreground: 60 9% 96%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 25% 8%;
+    --card-foreground: 60 9% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 25% 8%;
+    --popover-foreground: 60 9% 96%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 60 9% 96%;
+    --primary-foreground: 220 25% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 60 9% 96%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 13% 18%;
+    --muted-foreground: 240 4% 75%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 13% 18%;
+    --accent-foreground: 60 9% 96%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 45 100% 70%;
+    
+    --sidebar-background: 220 25% 8%;
+    --sidebar-foreground: 60 9% 96%;
+    --sidebar-primary: 45 100% 70%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 13% 18%;
+    --sidebar-accent-foreground: 60 9% 96%;
+    --sidebar-border: 220 13% 18%;
+    --sidebar-ring: 45 100% 70%;
   }
 }
 
@@ -106,44 +107,80 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .font-serif {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
   }
 }
 
 @layer utilities {
-  /* Custom Colors */
-  .text-burgundy { color: hsl(var(--burgundy)) }
-  .bg-burgundy { background-color: hsl(var(--burgundy)) }
-  .border-burgundy { border-color: hsl(var(--burgundy)) }
+  /* Premium Color Utilities */
+  .text-deep-navy { color: hsl(var(--deep-navy)) }
+  .bg-deep-navy { background-color: hsl(var(--deep-navy)) }
+  .border-deep-navy { border-color: hsl(var(--deep-navy)) }
   
-  .text-gold { color: hsl(var(--gold)) }
-  .bg-gold { background-color: hsl(var(--gold)) }
-  .border-gold { border-color: hsl(var(--gold)) }
+  .text-rich-gold { color: hsl(var(--rich-gold)) }
+  .bg-rich-gold { background-color: hsl(var(--rich-gold)) }
+  .border-rich-gold { border-color: hsl(var(--rich-gold)) }
   
-  .text-emerald { color: hsl(var(--emerald)) }
-  .bg-emerald { background-color: hsl(var(--emerald)) }
+  .text-warm-gold { color: hsl(var(--warm-gold)) }
+  .bg-warm-gold { background-color: hsl(var(--warm-gold)) }
   
-  .bg-ivory { background-color: hsl(var(--ivory)) }
-  .bg-champagne { background-color: hsl(var(--champagne)) }
-  .bg-soft-gray { background-color: hsl(var(--soft-gray)) }
+  .text-platinum { color: hsl(var(--platinum)) }
+  .bg-platinum { background-color: hsl(var(--platinum)) }
+  
+  .text-pearl { color: hsl(var(--pearl)) }
+  .bg-pearl { background-color: hsl(var(--pearl)) }
+  
+  .text-charcoal { color: hsl(var(--charcoal)) }
+  .bg-charcoal { background-color: hsl(var(--charcoal)) }
+  
+  .text-bronze { color: hsl(var(--bronze)) }
+  .bg-bronze { background-color: hsl(var(--bronze)) }
+  
+  .text-cream { color: hsl(var(--cream)) }
+  .bg-cream { background-color: hsl(var(--cream)) }
+  
+  .text-midnight { color: hsl(var(--midnight)) }
+  .bg-midnight { background-color: hsl(var(--midnight)) }
+  
+  .text-silver { color: hsl(var(--silver)) }
+  .bg-silver { background-color: hsl(var(--silver)) }
+
+  /* Premium Gradients */
+  .gradient-luxury {
+    background: linear-gradient(135deg, hsl(var(--rich-gold)) 0%, hsl(var(--warm-gold)) 50%, hsl(var(--bronze)) 100%);
+  }
+  
+  .gradient-dark-luxury {
+    background: linear-gradient(135deg, hsl(var(--midnight)) 0%, hsl(var(--deep-navy)) 50%, hsl(var(--charcoal)) 100%);
+  }
 
   /* Premium Animations */
   .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
   }
 
-  .animate-shimmer {
-    animation: shimmer 1.5s infinite;
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-luxury-shimmer {
+    animation: luxuryShimmer 2s infinite;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -151,21 +188,29 @@
     }
   }
 
-  @keyframes shimmer {
-    0% { transform: translateX(-100%) skewX(-12deg); }
-    100% { transform: translateX(200%) skewX(-12deg); }
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  /* Smooth Transitions */
-  * {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+  @keyframes luxuryShimmer {
+    0% { 
+      background-position: -200% center;
+    }
+    100% { 
+      background-position: 200% center;
+    }
   }
 
   /* Luxury Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 12px;
   }
   
   ::-webkit-scrollbar-track {
@@ -173,11 +218,32 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--gold));
-    border-radius: 4px;
+    background: linear-gradient(180deg, hsl(var(--rich-gold)), hsl(var(--warm-gold)));
+    border-radius: 6px;
+    border: 2px solid hsl(var(--background));
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--burgundy));
+    background: linear-gradient(180deg, hsl(var(--warm-gold)), hsl(var(--bronze)));
+  }
+
+  /* Glass Effects */
+  .glass-effect {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dark .glass-effect {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Premium Text Effects */
+  .text-luxury-gradient {
+    background: linear-gradient(135deg, hsl(var(--rich-gold)), hsl(var(--warm-gold)), hsl(var(--bronze)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

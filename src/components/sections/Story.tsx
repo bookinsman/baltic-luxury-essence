@@ -6,80 +6,92 @@ interface StoryProps {
 const Story = ({ language }: StoryProps) => {
   const content = {
     en: {
-      title: "Heritage of Excellence",
-      subtitle: "A Journey Through Time",
+      title: "Legacy of Craftsmanship",
+      subtitle: "Five Generations of Excellence",
       timeline: [
         {
           year: "1892",
-          title: "The Beginning",
-          description: "Founded in the heart of Lithuania, our distillery begins its journey with traditional methods passed down through generations."
+          title: "The Foundation",
+          description: "Established in Vilnius by master distiller Antanas Balčiūnas, beginning a legacy of uncompromising quality and traditional craftsmanship.",
+          image: "photo-1569529465841-dfecdab7503b"
         },
         {
           year: "1920",
-          title: "Expansion",
-          description: "We expand our operations, introducing Italian techniques while maintaining our Baltic heritage and commitment to quality."
+          title: "Innovation Meets Tradition",
+          description: "Expanded operations while preserving ancestral techniques. Introduced Italian methods to complement our Baltic heritage.",
+          image: "photo-1470071459604-3b5ec3a7fe05"
         },
         {
           year: "1995",
-          title: "Renaissance",
-          description: "After decades of tradition, we emerge as Lithuania's premier luxury spirit producer, combining heritage with modern innovation."
+          title: "Renaissance Era",
+          description: "Emerged as Lithuania's premier luxury spirits producer, combining centuries-old traditions with modern refinement.",
+          image: "photo-1500673922987-e212871fec22"
         },
         {
           year: "2024",
-          title: "Today",
-          description: "We continue to craft exceptional spirits that represent the finest of Baltic luxury, exported to discerning customers worldwide."
+          title: "Global Recognition",
+          description: "Today, we stand as the pinnacle of Baltic luxury spirits, celebrated by connoisseurs across continents.",
+          image: "photo-1569529465841-dfecdab7503b"
         }
       ]
     },
     lt: {
-      title: "Išskirtingumo Paveldas",
-      subtitle: "Kelionė Per Laiką",
+      title: "Meistriškumo Paveldas",
+      subtitle: "Penkios Kartos Tobulumo",
       timeline: [
         {
           year: "1892",
-          title: "Pradžia",
-          description: "Įkurta Lietuvos širdyje, mūsų distilerija pradeda savo kelionę su tradiciniais metodais, perduodamais iš kartos į kartą."
+          title: "Pagrindas",
+          description: "Įkurta Vilniuje meistro distiliatoriaus Antano Balčiūno, pradėjus nekompromisinio kokybės ir tradicinio meistriškumo paveldą.",
+          image: "photo-1569529465841-dfecdab7503b"
         },
         {
           year: "1920",
-          title: "Plėtra",
-          description: "Plečiame veiklą, pristatydami itališkus metodus, tuo pačiu išlaikydami Baltijos paveldą ir įsipareigojimą kokybei."
+          title: "Inovacijos Sutinka Tradiciją",
+          description: "Išplėsta veikla, išsaugant prosenelių metodus. Pristatyti itališki metodai papildant mūsų Baltijos paveldą.",
+          image: "photo-1470071459604-3b5ec3a7fe05"
         },
         {
           year: "1995",
-          title: "Renesansas",
-          description: "Po dešimtmečių tradicijų tampame pirmaujančiu Lietuvos prabangių gėrimų gamintoju, derindami paveldą su šiuolaikiškumu."
+          title: "Renesanso Era",
+          description: "Tapome pirmaujančiu Lietuvos prabangių gėrimų gamintoju, derinant šimtmečių tradicijas su šiuolaikišku rafinuotumu.",
+          image: "photo-1500673922987-e212871fec22"
         },
         {
           year: "2024",
-          title: "Šiandien",
-          description: "Ir toliau kuriame išskirtinius gėrimus, atstovaujančius geriausiam Baltijos prabangai, eksportuojamus išrankiems klientams visame pasaulyje."
+          title: "Pasaulinis Pripažinimas",
+          description: "Šiandien esame Baltijos prabangių gėrimų viršūnė, švenčiama žinovų visuose žemynuose.",
+          image: "photo-1569529465841-dfecdab7503b"
         }
       ]
     },
     ru: {
-      title: "Наследие Совершенства",
-      subtitle: "Путешествие Сквозь Время",
+      title: "Наследие Мастерства",
+      subtitle: "Пять Поколений Совершенства",
       timeline: [
         {
           year: "1892",
-          title: "Начало",
-          description: "Основанная в сердце Литвы, наша винокурня начинает свое путешествие с традиционными методами, передаваемыми из поколения в поколение."
+          title: "Основание",
+          description: "Основано в Вильнюсе мастером-дистиллятором Антанасом Балчюнасом, начав наследие бескомпромиссного качества.",
+          image: "photo-1569529465841-dfecdab7503b"
         },
         {
           year: "1920",
-          title: "Расширение",
-          description: "Мы расширяем деятельность, внедряя итальянские техники, сохраняя при этом балтийское наследие и приверженность качеству."
+          title: "Инновации Встречают Традиции",
+          description: "Расширили операции, сохранив древние техники. Внедрили итальянские методы в дополнение к балтийскому наследию.",
+          image: "photo-1470071459604-3b5ec3a7fe05"
         },
         {
           year: "1995",
-          title: "Ренессанс",
-          description: "После десятилетий традиций мы становимся ведущим производителем элитных спиртных напитков Литвы, сочетая наследие с современными инновациями."
+          title: "Эпоха Возрождения",
+          description: "Стали ведущим производителем элитных спиртных напитков Литвы, сочетая вековые традиции с современным изяществом.",
+          image: "photo-1500673922987-e212871fec22"
         },
         {
           year: "2024",
-          title: "Сегодня",
-          description: "Мы продолжаем создавать исключительные спиртные напитки, представляющие лучшее балтийской роскоши, экспортируемые взыскательным клиентам по всему миру."
+          title: "Мировое Признание",
+          description: "Сегодня мы - вершина балтийских элитных спиртных напитков, признанная знатоками всех континентов.",
+          image: "photo-1569529465841-dfecdab7503b"
         }
       ]
     }
@@ -88,43 +100,55 @@ const Story = ({ language }: StoryProps) => {
   const text = content[language as keyof typeof content] || content.en;
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-white/5 to-burgundy/10 dark:from-black/20 dark:to-emerald/20">
+    <section className="py-24 px-6 bg-gradient-to-b from-pearl to-cream dark:from-deep-navy dark:to-midnight">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-burgundy dark:text-gold mb-6">
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="font-display text-6xl md:text-7xl font-bold text-deep-navy dark:text-pearl mb-6">
             {text.title}
           </h2>
-          <p className="text-xl text-burgundy/80 dark:text-gold/80">
+          <p className="text-2xl text-charcoal/80 dark:text-platinum/80 font-light">
             {text.subtitle}
           </p>
         </div>
 
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-gold via-burgundy to-emerald opacity-30"></div>
+          {/* Elegant Timeline Line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-rich-gold via-warm-gold to-bronze"></div>
 
           {text.timeline.map((item, index) => (
-            <div key={index} className={`relative flex items-center mb-16 ${
+            <div key={index} className={`relative flex items-center mb-20 ${
               index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
             }`}>
               {/* Content */}
-              <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                <div className="bg-white/10 dark:bg-black/20 backdrop-blur-sm p-6 rounded-lg border border-white/20 dark:border-gold/20 hover:border-gold/40 transition-all duration-300 hover:shadow-xl">
-                  <div className="text-gold font-bold text-lg mb-2">{item.year}</div>
-                  <h3 className="font-serif text-2xl font-bold text-burgundy dark:text-gold mb-3">
+              <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'}`}>
+                <div className="glass-effect p-8 rounded-2xl hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                  <div className="text-rich-gold font-bold text-2xl mb-3 font-display">
+                    {item.year}
+                  </div>
+                  <h3 className="font-display text-3xl font-bold text-deep-navy dark:text-pearl mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-burgundy/80 dark:text-gold/80 leading-relaxed">
+                  <p className="text-charcoal/80 dark:text-platinum/80 leading-relaxed text-lg">
                     {item.description}
                   </p>
                 </div>
               </div>
 
               {/* Center Point */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gold rounded-full border-4 border-white dark:border-black shadow-lg"></div>
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-luxury-gradient rounded-full border-4 border-pearl dark:border-midnight shadow-lg"></div>
 
-              {/* Spacer */}
-              <div className="w-5/12"></div>
+              {/* Image */}
+              <div className="w-5/12">
+                <div className={`${index % 2 === 0 ? 'ml-12' : 'mr-12'}`}>
+                  <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                    <img 
+                      src={`https://images.unsplash.com/${item.image}?q=80&w=600&h=600`}
+                      alt={item.title}
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>

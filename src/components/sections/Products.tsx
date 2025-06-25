@@ -1,92 +1,111 @@
 
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 interface ProductsProps {
   language: string;
 }
 
 const Products = ({ language }: ProductsProps) => {
-  const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
+  const [activeProduct, setActiveProduct] = useState<number | null>(null);
 
   const content = {
     en: {
-      title: "Our Premium Collection",
-      subtitle: "Three Masterpieces of Baltic Craftsmanship",
+      title: "Artisan Collection",
+      subtitle: "Three Expressions of Mastery",
       products: [
         {
           name: "Baltijos Grappa",
           type: "Premium Grappa",
-          description: "Distilled from the finest Baltic grape pomace, aged in oak barrels for exceptional smoothness and complex flavor profiles.",
-          notes: ["Rich amber color", "Notes of vanilla & honey", "42% ABV", "Limited edition"],
-          image: "photo-1721322800607-8c38375eef04"
+          description: "Distilled from the finest Lithuanian grape pomace, aged in French oak barrels for unparalleled complexity and depth.",
+          details: "A testament to our craft, this grappa reveals layers of vanilla, honey, and subtle spice notes that dance on the palate.",
+          specs: ["42% ABV", "Aged 5 Years", "French Oak", "Limited Edition"],
+          price: "€180",
+          image: "photo-1569529465841-dfecdab7503b"
         },
         {
-          name: "Žolelių Likeriai",
-          type: "Herbal Liqueurs",
-          description: "Traditional Lithuanian herbal liqueurs crafted with 25 carefully selected herbs and spices from the Baltic region.",
-          notes: ["Deep golden hue", "Herbal complexity", "35% ABV", "Family recipe"],
+          name: "Žolelių Mystique",
+          type: "Herbal Liqueur",
+          description: "An ancient recipe featuring 27 carefully selected herbs from the pristine Baltic forests, creating an elixir of unmatched sophistication.",
+          details: "Each bottle captures the essence of Lithuanian wilderness, with notes of juniper, elderflower, and wild honey.",
+          specs: ["35% ABV", "27 Herbs", "Wild Honey", "Traditional Recipe"],
+          price: "€120",
           image: "photo-1470071459604-3b5ec3a7fe05"
         },
         {
-          name: "Citrusų Limoncello",
+          name: "Citrus Royale",
           type: "Artisan Limoncello",
-          description: "Handcrafted limoncello using organic lemons and traditional Italian methods, perfected with Baltic precision.",
-          notes: ["Bright yellow color", "Zesty citrus burst", "28% ABV", "Artisan crafted"],
+          description: "Handcrafted using organic Amalfi lemons and traditional methods, elevated with Baltic precision and attention to detail.",
+          details: "Pure elegance in liquid form, with bright citrus notes and a silky smooth finish that lingers beautifully.",
+          specs: ["28% ABV", "Amalfi Lemons", "Hand Crafted", "Pure Elegance"],
+          price: "€95",
           image: "photo-1500673922987-e212871fec22"
         }
       ]
     },
     lt: {
-      title: "Mūsų Premium Kolekcija",
-      subtitle: "Trys Baltijos Meistriškumo Šedevrai",
+      title: "Menininkų Kolekcija",
+      subtitle: "Trys Meistriškumo Išraiškos",
       products: [
         {
           name: "Baltijos Grappa",
           type: "Premium Grappa",
-          description: "Distiliuota iš geriausių Baltijos vynuogių išspaudų, brandintos ąžuolo statinėse išskirtiniam švelnumui ir sudėtingam skoniui.",
-          notes: ["Turtinga gintaro spalva", "Vanilės ir medaus natos", "42% ABV", "Riboto leidimo"],
-          image: "photo-1721322800607-8c38375eef04"
+          description: "Distiliuota iš geriausių Lietuvos vynuogių išspaudų, brandintas prancūziškuose ąžuolo statinėse neprilygstamai sudėtingumui.",
+          details: "Mūsų meistravimo įrodymas - ši grappa atskleidžia vanilės, medaus ir subtilių prieskonių sluoksnius.",
+          specs: ["42% ABV", "Brandinta 5 m.", "Prancūzų Ąžuolas", "Ribota Serija"],
+          price: "€180",
+          image: "photo-1569529465841-dfecdab7503b"
         },
         {
-          name: "Žolelių Likeriai",
-          type: "Žolelių Likeriai",
-          description: "Tradiciniai lietuviški žolelių likeriai, pagaminti iš 25 kruopščiai parinktų žolių ir prieskonių iš Baltijos regiono.",
-          notes: ["Gilus aukso atspalvis", "Žolelių sudėtingumas", "35% ABV", "Šeimos receptas"],
+          name: "Žolelių Mystique",
+          type: "Žolelių Likeris",
+          description: "Senovinis receptas su 27 kruopščiai parinktomis žolelėmis iš nesugadintų Baltijos miškų.",
+          details: "Kiekvienas butelis įkvepia Lietuvos gamtos esmę su kadagio, šeivamedžio ir laukinio medaus notomis.",
+          specs: ["35% ABV", "27 Žolelės", "Laukinis Medus", "Tradicinis Receptas"],
+          price: "€120",
           image: "photo-1470071459604-3b5ec3a7fe05"
         },
         {
-          name: "Citrusų Limoncello",
+          name: "Citrus Royale",
           type: "Meistro Limoncello",
-          description: "Rankomis gamintas limoncello iš ekologiškų citrinų ir tradicinių italų metodų, tobulėjant Baltijos tikslumu.",
-          notes: ["Ryški geltona spalva", "Citrusinė gaiva", "28% ABV", "Meistro darbas"],
+          description: "Gamintas rankomis iš ekologiškų Amalfi citrinų, pakeliamas Baltijos tikslumu ir dėmesiu detalėms.",
+          details: "Gryna elegancija skystos formos pavidalu, su ryškiomis citrusinėmis notomis ir švelniu finimu.",
+          specs: ["28% ABV", "Amalfi Citrina", "Rankų Darbas", "Gryna Elegancija"],
+          price: "€95",
           image: "photo-1500673922987-e212871fec22"
         }
       ]
     },
     ru: {
-      title: "Наша Премиальная Коллекция",
-      subtitle: "Три Шедевра Балтийского Мастерства",
+      title: "Коллекция Мастеров",
+      subtitle: "Три Выражения Мастерства",
       products: [
         {
           name: "Балтийская Граппа",
           type: "Премиум Граппа",
-          description: "Дистиллированная из лучшего балтийского виноградного жмыха, выдержанная в дубовых бочках для исключительной мягкости.",
-          notes: ["Насыщенный янтарный цвет", "Ноты ванили и меда", "42% ABV", "Лимитированная серия"],
-          image: "photo-1721322800607-8c38375eef04"
+          description: "Дистиллированная из лучшего литовского виноградного жмыха, выдержанная в французских дубовых бочках.",
+          details: "Свидетельство нашего мастерства - эта граппа раскрывает слои ванили, меда и тонких пряных нот.",
+          specs: ["42% ABV", "Выдержка 5 лет", "Французский Дуб", "Лимитированная Серия"],
+          price: "€180",
+          image: "photo-1569529465841-dfecdab7503b"
         },
         {
-          name: "Травяные Ликеры",
-          type: "Травяные Ликеры",
-          description: "Традиционные литовские травяные ликеры, созданные из 25 тщательно отобранных трав и специй Балтийского региона.",
-          notes: ["Глубокий золотой оттенок", "Травяная сложность", "35% ABV", "Семейный рецепт"],
+          name: "Травяная Мистика",
+          type: "Травяной Ликер",
+          description: "Древний рецепт с 27 тщательно отобранными травами из нетронутых балтийских лесов.",
+          details: "Каждая бутылка передает сущность литовской природы с нотами можжевельника, бузины и дикого меда.",
+          specs: ["35% ABV", "27 Трав", "Дикий Мед", "Традиционный Рецепт"],
+          price: "€120",
           image: "photo-1470071459604-3b5ec3a7fe05"
         },
         {
-          name: "Цитрусовый Лимончелло",
+          name: "Королевский Цитрус",
           type: "Артизанский Лимончелло",
-          description: "Ручной лимончелло из органических лимонов и традиционных итальянских методов, усовершенствованный балтийской точностью.",
-          notes: ["Яркий желтый цвет", "Цитрусовый взрыв", "28% ABV", "Ремесленная работа"],
+          description: "Изготовлен вручную из органических лимонов Амальфи, усовершенствован балтийской точностью.",
+          details: "Чистая элегантность в жидкой форме с яркими цитрусовыми нотами и шелковистым послевкусием.",
+          specs: ["28% ABV", "Лимоны Амальфи", "Ручная Работа", "Чистая Элегантность"],
+          price: "€95",
           image: "photo-1500673922987-e212871fec22"
         }
       ]
@@ -96,24 +115,24 @@ const Products = ({ language }: ProductsProps) => {
   const text = content[language as keyof typeof content] || content.en;
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-transparent to-white/10 dark:to-black/20">
+    <section className="py-24 px-6 bg-gradient-to-b from-cream to-pearl dark:from-midnight dark:to-deep-navy">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-burgundy dark:text-gold mb-6">
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="font-display text-6xl md:text-7xl font-bold text-deep-navy dark:text-pearl mb-6">
             {text.title}
           </h2>
-          <p className="text-xl text-burgundy/80 dark:text-gold/80 max-w-3xl mx-auto">
+          <p className="text-2xl text-charcoal/80 dark:text-platinum/80 font-light max-w-2xl mx-auto">
             {text.subtitle}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {text.products.map((product, index) => (
             <Card
               key={index}
-              className="group relative overflow-hidden bg-white/20 dark:bg-black/30 backdrop-blur-sm border-white/30 dark:border-gold/20 hover:border-gold/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl"
-              onMouseEnter={() => setHoveredProduct(index)}
-              onMouseLeave={() => setHoveredProduct(null)}
+              className="group relative overflow-hidden glass-effect hover:scale-105 transition-all duration-500 hover:shadow-2xl cursor-pointer border-0"
+              onMouseEnter={() => setActiveProduct(index)}
+              onMouseLeave={() => setActiveProduct(null)}
             >
               <div className="aspect-[3/4] relative overflow-hidden">
                 <div 
@@ -122,34 +141,45 @@ const Products = ({ language }: ProductsProps) => {
                     backgroundImage: `url('https://images.unsplash.com/${product.image}?q=80&w=800&h=1200')`
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-midnight/30 to-transparent" />
                 
-                {/* Hover Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-t from-burgundy/90 via-burgundy/40 to-transparent transition-opacity duration-300 ${
-                  hoveredProduct === index ? 'opacity-100' : 'opacity-0'
-                }`} />
+                {/* Premium Price Badge */}
+                <div className="absolute top-6 right-6">
+                  <Badge className="bg-luxury-gradient text-midnight font-bold px-4 py-2 text-lg">
+                    {product.price}
+                  </Badge>
+                </div>
               </div>
 
-              <CardContent className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <div className="mb-2">
-                  <span className="text-sm text-gold font-medium tracking-wider uppercase">
+              <CardContent className="absolute bottom-0 left-0 right-0 p-8 text-pearl">
+                <div className="mb-3">
+                  <span className="text-sm text-rich-gold font-medium tracking-wider uppercase">
                     {product.type}
                   </span>
                 </div>
-                <h3 className="font-serif text-2xl font-bold mb-3">
+                
+                <h3 className="font-display text-3xl font-bold mb-4">
                   {product.name}
                 </h3>
                 
-                <div className={`transition-all duration-300 ${
-                  hoveredProduct === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+                <p className="text-platinum/90 mb-6 leading-relaxed">
+                  {product.description}
+                </p>
+                
+                <div className={`transition-all duration-500 ${
+                  activeProduct === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 } overflow-hidden`}>
-                  <p className="text-sm text-white/90 mb-4 leading-relaxed">
-                    {product.description}
+                  <p className="text-sm text-platinum/80 mb-4 italic leading-relaxed">
+                    {product.details}
                   </p>
+                  
                   <div className="grid grid-cols-2 gap-2">
-                    {product.notes.map((note, noteIndex) => (
-                      <span key={noteIndex} className="text-xs text-gold bg-white/10 px-2 py-1 rounded">
-                        {note}
+                    {product.specs.map((spec, specIndex) => (
+                      <span 
+                        key={specIndex} 
+                        className="text-xs text-rich-gold bg-rich-gold/10 px-3 py-2 rounded-full border border-rich-gold/20 text-center"
+                      >
+                        {spec}
                       </span>
                     ))}
                   </div>

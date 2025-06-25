@@ -38,20 +38,20 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-ivory via-champagne to-soft-gray dark:from-burgundy-900 dark:via-emerald-900 dark:to-black transition-all duration-500">
-      {/* Fixed Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 dark:bg-black/20 backdrop-blur-md border-b border-white/20 dark:border-gold/20">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-serif font-bold text-burgundy dark:text-gold">
+    <div className="min-h-screen bg-gradient-to-br from-cream via-pearl to-platinum dark:from-midnight dark:via-deep-navy dark:to-charcoal transition-all duration-700">
+      {/* Premium Fixed Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-rich-gold/10">
+        <div className="container mx-auto px-6 py-6 flex justify-between items-center">
+          <div className="text-3xl font-display font-bold text-deep-navy dark:text-pearl">
             BALTICA
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleLanguage}
-              className="text-burgundy dark:text-gold hover:bg-gold/20"
+              className="text-deep-navy dark:text-pearl hover:bg-rich-gold/10 hover:text-rich-gold transition-all duration-300"
             >
               <Globe className="w-4 h-4 mr-2" />
               {languages[language]}
@@ -61,7 +61,7 @@ const Index = () => {
               variant="ghost"
               size="sm"
               onClick={toggleTheme}
-              className="text-burgundy dark:text-gold hover:bg-gold/20"
+              className="text-deep-navy dark:text-pearl hover:bg-rich-gold/10 hover:text-rich-gold transition-all duration-300"
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </Button>
