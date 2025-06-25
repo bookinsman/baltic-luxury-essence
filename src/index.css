@@ -1,6 +1,10 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import Premium Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
@@ -37,20 +41,23 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom Luxury Colors */
+    --burgundy: 128 100% 8%;
+    --burgundy-900: 128 100% 4%;
+    --gold: 45 93% 58%;
+    --emerald: 158 64% 20%;
+    --emerald-900: 158 64% 10%;
+    --ivory: 48 25% 95%;
+    --champagne: 48 29% 88%;
+    --soft-gray: 210 11% 85%;
   }
 
   .dark {
@@ -99,5 +106,78 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer utilities {
+  /* Custom Colors */
+  .text-burgundy { color: hsl(var(--burgundy)) }
+  .bg-burgundy { background-color: hsl(var(--burgundy)) }
+  .border-burgundy { border-color: hsl(var(--burgundy)) }
+  
+  .text-gold { color: hsl(var(--gold)) }
+  .bg-gold { background-color: hsl(var(--gold)) }
+  .border-gold { border-color: hsl(var(--gold)) }
+  
+  .text-emerald { color: hsl(var(--emerald)) }
+  .bg-emerald { background-color: hsl(var(--emerald)) }
+  
+  .bg-ivory { background-color: hsl(var(--ivory)) }
+  .bg-champagne { background-color: hsl(var(--champagne)) }
+  .bg-soft-gray { background-color: hsl(var(--soft-gray)) }
+
+  /* Premium Animations */
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) skewX(-12deg); }
+    100% { transform: translateX(200%) skewX(-12deg); }
+  }
+
+  /* Smooth Transitions */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  /* Luxury Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--gold));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--burgundy));
   }
 }
