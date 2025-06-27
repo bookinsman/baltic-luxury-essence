@@ -21,7 +21,7 @@ const Gallery = ({ language }: GalleryProps) => {
     },
     lt: {
       title: "Žvilgsnis į Išskirtinumą",
-      subtitle: "Atraskite Limoncello pasaulį per mūsų kuruojamą galeriją.",
+      subtitle: "Lorenzo Inga",
     },
     ru: {
       title: "Взгляд на Совершенство",
