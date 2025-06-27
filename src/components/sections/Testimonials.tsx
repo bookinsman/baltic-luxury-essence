@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Star, Quote } from 'lucide-react';
 
@@ -20,6 +19,7 @@ const Testimonials = ({ language }: TestimonialsProps) => {
           title: "Master Sommelier",
           location: "Copenhagen",
           rating: 5,
+          // Image URL: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=128&h=128
           image: "photo-1507003211169-0a1dd7228f2d"
         },
         {
@@ -28,6 +28,7 @@ const Testimonials = ({ language }: TestimonialsProps) => {
           title: "Spirits Critic",
           location: "Milan",
           rating: 5,
+          // Image URL: https://images.unsplash.com/photo-1494790108755-2616b332c2c2?q=80&w=128&h=128
           image: "photo-1494790108755-2616b332c2c2"
         },
         {
@@ -36,6 +37,7 @@ const Testimonials = ({ language }: TestimonialsProps) => {
           title: "Michelin Star Sommelier",
           location: "London",
           rating: 5,
+          // Image URL: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=128&h=128
           image: "photo-1472099645785-5658abf4ff4e"
         }
       ]
@@ -50,6 +52,7 @@ const Testimonials = ({ language }: TestimonialsProps) => {
           title: "Meistras Someljė",
           location: "Kopenhaga",
           rating: 5,
+          // Image URL: https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=128&h=128
           image: "photo-1507003211169-0a1dd7228f2d"
         },
         {
@@ -58,6 +61,7 @@ const Testimonials = ({ language }: TestimonialsProps) => {
           title: "Gėrimų Kritikė",
           location: "Milanas",
           rating: 5,
+          // Image URL: https://images.unsplash.com/photo-1494790108755-2616b332c2c2?q=80&w=128&h=128
           image: "photo-1494790108755-2616b332c2c2"
         },
         {
