@@ -240,6 +240,25 @@
   }
 
   .drop-shadow-gold {
-    filter: drop-shadow(0 4px 20px rgba(255, 215, 0, 0.3));
+    filter: drop-shadow(0 4px 6px hsl(var(--rich-gold) / 0.3));
+  }
+}
+
+/* Custom two-column layout for mobile */
+.mobile-two-columns {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-two-columns {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-two-columns {
+    grid-template-columns: repeat(4, 1fr) !important;
   }
 }

@@ -33,7 +33,7 @@ const ProductSection: React.FC<{ title: string; products: typeof allProducts; in
         {introduction}
       </p>
     )}
-    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="mobile-two-columns">
       {products.map((product, index) => (
         <ProductCard
           key={index}
