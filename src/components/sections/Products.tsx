@@ -52,7 +52,7 @@ const Products = ({ language }: ProductsProps) => {
         {
           name: "Antico Amaro di Serravalle",
           type: "Žolelių Likeris",
-          description: "Gaunamas užpilant daugiau nei 20 skirtingų žolelių, augalų, šaknų ir medžių žievių",
+          description: "Gaunamas užpilant daugiau nei 20 skirtingų žolelių, augalų, šaknų ir medžių žievių.",
           details: "Tai virškinimą gerinantis likeris, kuriuo geriausia mėgautis kaip aperityvu su ledu arba kaip kokteilio dalimi.",
           image: "/liqour.jpg"
         },
@@ -119,7 +119,7 @@ const Products = ({ language }: ProductsProps) => {
   }, []);
 
   return (
-    <section className="py-32 px-6" style={{ backgroundColor: 'hsl(29.8deg 94.88% 35.1% / 85%)' }}>
+    <section id="products-section" className="py-32 px-6" style={{ backgroundColor: 'hsl(29.8deg 94.88% 35.1% / 85%)' }}>
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-20">
           <h2 

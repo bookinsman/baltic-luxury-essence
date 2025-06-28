@@ -1,81 +1,80 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Moon, Sun, Globe } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { NavLink } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
-interface HeaderProps {
-  isDark: boolean;
-  toggleTheme: () => void;
-  language: string;
-  toggleLanguage: () => void;
-  languages: { [key: string]: string };
-}
-
-const Header = ({ isDark, toggleTheme, language, toggleLanguage, languages }: HeaderProps) => {
-  const [scrolled, setScrolled] = useState(false);
+const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      setScrolled(isScrolled);
+      setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-      scrolled 
-        ? 'backdrop-blur-xl bg-cream/60 dark:bg-midnight/70 border-b border-rich-gold/15 shadow-lg shadow-rich-gold/8' 
-        : 'backdrop-blur-sm bg-transparent border-b border-transparent'
-    }`}>
-      <div className="container mx-auto px-8 py-4 flex justify-between items-center">
-        <Link to="/" className={`text-2xl font-display font-light tracking-wider transition-all duration-500 ${
-          scrolled 
-            ? 'text-deep-navy dark:text-pearl' 
-            : 'text-pearl drop-shadow-lg'
-        }`}>
-          Limoncello
-        </Link>
-        
-        <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className={`transition-all duration-500 text-sm font-medium text-rich-gold hover:opacity-80 ${scrolled ? 'dark:text-warm-gold' : 'drop-shadow-md'}`}>Pradžia</Link>
-          <Link to="/grappa" className={`transition-all duration-500 text-sm font-medium text-rich-gold hover:opacity-80 ${scrolled ? 'dark:text-warm-gold' : 'drop-shadow-md'}`}>Grappa</Link>
-          <Link to="/likeriai" className={`transition-all duration-500 text-sm font-medium text-rich-gold hover:opacity-80 ${scrolled ? 'dark:text-warm-gold' : 'drop-shadow-md'}`}>Likeriai</Link>
-          <Link to="/asortimentas" className={`transition-all duration-500 text-sm font-medium text-rich-gold hover:opacity-80 ${scrolled ? 'dark:text-warm-gold' : 'drop-shadow-md'}`}>Asortimentas</Link>
-        </div>
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
 
-        <div className="flex items-center gap-3">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleLanguage}
-            className={`transition-all duration-500 text-sm font-medium ${
-              scrolled
-                ? 'text-deep-navy dark:text-pearl hover:bg-rich-gold/10 hover:text-rich-gold'
-                : 'text-pearl/90 hover:bg-pearl/10 hover:text-pearl drop-shadow-md'
-            }`}
-          >
-            <Globe className="w-4 h-4 mr-1.5" />
-            {languages[language]}
-          </Button>
-          
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleTheme}
-            className={`transition-all duration-500 ${
-              scrolled
-                ? 'text-deep-navy dark:text-pearl hover:bg-rich-gold/10 hover:text-rich-gold'
-                : 'text-pearl/90 hover:bg-pearl/10 hover:text-pearl drop-shadow-md'
-            }`}
-          >
-            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </Button>
+  return (
+    <>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-cream/90 shadow-lg backdrop-blur-sm' : 'bg-transparent'}`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex-shrink-0">
+              <NavLink to="/" className="text-3xl font-bold font-display text-deep-navy">
+                Limoncello
+              </NavLink>
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
+              <NavLink to="/" className={`text-lg font-serif font-medium transition-colors duration-300 ${isScrolled ? 'text-charcoal hover:text-rich-gold' : 'text-rich-gold hover:text-rich-gold/80'}`}>Pradžia</NavLink>
+              <a href="/#asortimentas-section" className={`text-lg font-serif font-medium transition-colors duration-300 ${isScrolled ? 'text-charcoal hover:text-rich-gold' : 'text-rich-gold hover:text-rich-gold/80'}`}>Asortimentas</a>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={`p-2 rounded-md transition-colors duration-300 hover:bg-rich-gold/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rich-gold ${isScrolled ? 'text-charcoal' : 'text-rich-gold'}`}
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu Panel */}
+      <div
+        className={`md:hidden fixed top-20 left-0 right-0 z-40 bg-cream/95 backdrop-blur-md shadow-lg transition-transform duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-[150%]'
+        }`}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex flex-col items-center space-y-6 py-8">
+            <NavLink
+              to="/"
+              onClick={handleLinkClick}
+              className="text-2xl font-serif font-medium text-rich-gold transition-colors duration-300 hover:text-rich-gold/80"
+            >
+              Pradžia
+            </NavLink>
+            <a
+              href="/#asortimentas-section"
+              onClick={handleLinkClick}
+              className="text-2xl font-serif font-medium text-rich-gold transition-colors duration-300 hover:text-rich-gold/80"
+            >
+              Asortimentas
+            </a>
+          </nav>
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 

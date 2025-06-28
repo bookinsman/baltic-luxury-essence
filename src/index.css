@@ -6,6 +6,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -57,45 +60,6 @@
     --cream: 45 25% 95%;
     --midnight: 220 30% 5%;
     --silver: 240 4% 75%;
-  }
-
-  .dark {
-    --background: 220 25% 8%;
-    --foreground: 60 9% 96%;
-
-    --card: 220 25% 8%;
-    --card-foreground: 60 9% 96%;
-
-    --popover: 220 25% 8%;
-    --popover-foreground: 60 9% 96%;
-
-    --primary: 60 9% 96%;
-    --primary-foreground: 220 25% 8%;
-
-    --secondary: 220 13% 18%;
-    --secondary-foreground: 60 9% 96%;
-
-    --muted: 220 13% 18%;
-    --muted-foreground: 240 4% 75%;
-
-    --accent: 220 13% 18%;
-    --accent-foreground: 60 9% 96%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 13% 18%;
-    --input: 220 13% 18%;
-    --ring: 45 100% 70%;
-    
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 60 9% 96%;
-    --sidebar-primary: 45 100% 70%;
-    --sidebar-primary-foreground: 220 25% 8%;
-    --sidebar-accent: 220 13% 18%;
-    --sidebar-accent-foreground: 60 9% 96%;
-    --sidebar-border: 220 13% 18%;
-    --sidebar-ring: 45 100% 70%;
   }
 }
 
@@ -182,7 +146,7 @@
   }
 
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
   @keyframes fadeIn {
@@ -255,23 +219,11 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
 
-  .dark .glass-effect {
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-
   .glass-effect-strong {
     backdrop-filter: blur(40px) saturate(200%);
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 16px 64px rgba(0, 0, 0, 0.15);
-  }
-
-  .dark .glass-effect-strong {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 16px 64px rgba(0, 0, 0, 0.5);
   }
 
   /* Premium Text Effects */

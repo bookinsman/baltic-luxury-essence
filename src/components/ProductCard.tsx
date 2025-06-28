@@ -1,28 +1,34 @@
 import React from 'react';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 interface ProductCardProps {
   name: string;
   description: string;
+  image: string;
   volume: string;
   strength: string;
-  image: string;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ name, description, image, volume, strength }) => {
   return (
-    <div className="bg-white/50 dark:bg-midnight/20 border border-rich-gold/10 rounded-lg shadow-lg overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-xl hover:border-rich-gold/20">
-      <div className="overflow-hidden p-4 bg-white/30 dark:bg-midnight/10">
-        <img src={image} alt={name} className="w-full h-64 object-contain group-hover:scale-105 transition-transform duration-500 ease-in-out" />
-      </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-deep-navy dark:text-pearl font-display mb-2">{name}</h3>
-        <p className="text-charcoal/80 dark:text-platinum/80 text-sm leading-relaxed mb-4 flex-grow">{description}</p>
-        <div className="mt-auto border-t border-rich-gold/10 pt-4 flex justify-between items-center text-sm text-charcoal/80 dark:text-platinum/80 font-semibold">
+    <Card className="bg-white/50 border-rich-gold/20 shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full overflow-hidden rounded-lg">
+      <CardHeader className="p-0">
+        <div className="aspect-square overflow-hidden">
+          <img src={image} alt={name} className="w-full h-full object-cover" />
+        </div>
+      </CardHeader>
+      <CardContent className="p-6 flex-grow">
+        <CardTitle className="font-display text-2xl text-deep-navy mb-2">{name}</CardTitle>
+        <p className="text-charcoal/80 font-light text-sm">{description}</p>
+      </CardContent>
+      <CardFooter className="p-6 pt-0 mt-auto">
+        <div className="flex justify-between items-center w-full text-sm text-charcoal">
           <span>{volume}</span>
           <span>{strength}</span>
         </div>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 

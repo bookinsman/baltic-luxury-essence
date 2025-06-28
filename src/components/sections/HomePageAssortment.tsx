@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProductCard from '@/components/ProductCard';
 
 const allProducts = [
@@ -48,10 +48,42 @@ const ProductSection: React.FC<{ title: string; products: typeof allProducts; in
   </section>
 );
 
-const AsortimentasPage = () => {
+
+const HomePageAssortment = () => {
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const itemRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers = itemRefs.current.map((ref, index) => {
+      if (!ref) return null;
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleItems(prev => [...prev, index]);
+            observer.unobserve(entry.target);
+          }
+        },
+        { threshold: 0.1 }
+      );
+      
+      observer.observe(ref);
+      return observer;
+    });
+
+    return () => {
+      observers.forEach(observer => {
+        if (observer) {
+          observer.disconnect();
+        }
+      });
+    };
+  }, []);
+
   return (
     <div 
-      className="min-h-screen bg-cream text-charcoal"
+      id="asortimentas-section"
+      className="bg-cream text-charcoal py-20 overflow-hidden"
       style={{
         backgroundImage: `repeating-linear-gradient(
           45deg,
@@ -62,36 +94,69 @@ const AsortimentasPage = () => {
         )`,
       }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-deep-navy mb-4 font-display">
+          <h1 
+            ref={el => (itemRefs.current[0] = el)}
+            className={`text-5xl md:text-6xl font-bold text-deep-navy mb-4 font-display transition-all duration-700 ease-out ${visibleItems.includes(0) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
             Mūsų Asortimentas
           </h1>
-          <div className="w-48 h-1 bg-gradient-to-r from-transparent via-rich-gold to-transparent mx-auto my-6"></div>
-          <p className="text-lg md:text-xl text-charcoal/80 font-light max-w-3xl mx-auto">
+          <div 
+             ref={el => (itemRefs.current[1] = el)}
+            className={`w-48 h-1 bg-gradient-to-r from-transparent via-rich-gold to-transparent mx-auto my-6 transition-all duration-700 ease-out ${visibleItems.includes(1) ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}
+            style={{ transitionDelay: '150ms' }}
+          ></div>
+          <p 
+            ref={el => (itemRefs.current[2] = el)}
+            className={`text-lg md:text-xl text-charcoal/80 font-light max-w-3xl mx-auto transition-all duration-700 ease-out ${visibleItems.includes(2) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '300ms' }}
+          >
             "Lorenzo Inga" prekinis ženklas apima rinktinius gėrimus, kurie yra Pjemonto ir kitų Italijos regionų pasididžiavimas. Kiekvienas iš šių produktų išlaiko senovinių, iš kartos į kartą perduodamų receptų dvasią.
           </p>
-          <p className="text-lg md:text-xl text-charcoal/80 font-light max-w-3xl mx-auto mt-6">
+          <p 
+            ref={el => (itemRefs.current[3] = el)}
+            className={`text-lg md:text-xl text-charcoal/80 font-light max-w-3xl mx-auto mt-6 transition-all duration-700 ease-out ${visibleItems.includes(3) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '450ms' }}
+          >
             <strong>Atraskite "Baby" formatą!</strong> Miniatiūriniai buteliukai – puikus būdas išbandyti skonį be didelių įsipareigojimų. Jie taip pat yra tobula, nedidelė dovanėlė ar stalo akcentas.
           </p>
         </header>
 
         <div className="space-y-16">
-          <ProductSection 
-            title="Likeriai" 
-            products={liqueurs}
-            introduction="Ne tik citrinos! Apelsinų, melionų ir šokolado likeriai įrodo, kad Italija gali nustebinti skonių įvairove. Kuris taps jūsų mėgstamiausiu?"
-          />
-          <ProductSection 
-            title="Grappa" 
-            products={grappas}
-            introduction="Grappa – itališkos dvasios esmė. Kiekviena rūšis turi savo unikalų charakterį, todėl puikiai tinka prie kavos, desertų ar kaip digestivas po vakarienės. Pasidalinkite savo patirtimi!"
-          />
-          <ProductSection title="Dovanų Rinkiniai" products={gifts} />
+          <div 
+            ref={el => (itemRefs.current[4] = el)}
+            className={`transition-all duration-700 ease-out ${visibleItems.includes(4) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '600ms' }}
+          >
+            <ProductSection 
+              title="Likeriai" 
+              products={liqueurs}
+              introduction="Ne tik citrinos! Apelsinų, melionų ir šokolado likeriai įrodo, kad Italija gali nustebinti skonių įvairove. Kuris taps jūsų mėgstamiausiu?"
+            />
+          </div>
+          <div 
+            ref={el => (itemRefs.current[5] = el)}
+            className={`transition-all duration-700 ease-out ${visibleItems.includes(5) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '750ms' }}
+          >
+            <ProductSection 
+              title="Grappa" 
+              products={grappas}
+              introduction="Grappa – itališkos dvasios esmė. Kiekviena rūšis turi savo unikalų charakterį, todėl puikiai tinka prie kavos, desertų ar kaip digestivas po vakarienės. Pasidalinkite savo patirtimi!"
+            />
+          </div>
+          <div 
+            ref={el => (itemRefs.current[6] = el)}
+            className={`transition-all duration-700 ease-out ${visibleItems.includes(6) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '900ms' }}
+          >
+            <ProductSection title="Dovanų Rinkiniai" products={gifts} />
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default AsortimentasPage; 
+export default HomePageAssortment; 

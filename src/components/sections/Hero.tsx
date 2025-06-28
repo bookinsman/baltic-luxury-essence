@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { ArrowDown } from 'lucide-react';
 
 interface HeroProps {
   language: string;
@@ -33,7 +33,7 @@ const Hero = ({ language }: HeroProps) => {
       {/* Background with Black Overlay */}
       <div className="absolute inset-0">
         {/* Your specific background image */}
-        <div className="absolute inset-0 bg-[url('https://cdn.pixabay.com/photo/2018/05/02/17/46/alcohol-3369212_1280.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[url('https://cdn.pixabay.com/photo/2023/10/28/06/40/wine-8346641_1280.jpg')] bg-cover bg-center blur-sm"></div>
         
         {/* Black overlay for readability */}
         <div className="absolute inset-0 bg-black/50"></div>
@@ -82,15 +82,10 @@ const Hero = ({ language }: HeroProps) => {
           {text.description}
         </p>
         
-        {/* Centered Explore Collection Button */}
-        <div className="flex justify-center animate-fade-in" style={{ animationDelay: '1s' }}>
-          <Button
-            size="lg"
-            className="bg-luxury-gradient hover:scale-105 text-midnight font-semibold px-16 py-8 text-xl transition-all duration-300 hover:shadow-2xl hover:shadow-rich-gold/25 relative overflow-hidden group"
-          >
-            {text.cta}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 skew-x-12 animate-luxury-shimmer"></div>
-          </Button>
+        <div className="mt-12 animate-fade-in" style={{ animationDelay: '1s' }}>
+          <a href="#products-section" aria-label="Scroll down">
+            <ArrowDown className="w-10 h-10 mx-auto text-rich-gold animate-float transition-colors hover:text-rich-gold/80" />
+          </a>
         </div>
       </div>
     </section>

@@ -48,17 +48,16 @@ const liqueursPosts = [
 
 const LiqueursPage = () => {
   return (
-    <div className="min-h-screen bg-pearl dark:bg-deep-navy text-charcoal dark:text-pearl">
-      <div className="container mx-auto px-6 lg:px-12 py-32">
+    <div className="bg-cream text-charcoal min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <header className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-deep-navy dark:text-pearl mb-4 font-display">
-            Likeriai: Italijos Skonių Mozaika
+          <h1 className="text-5xl md:text-6xl font-bold text-deep-navy mb-4 font-display">
+            Apie Likerius
           </h1>
-          <p className="text-lg md:text-xl text-charcoal/80 dark:text-platinum/80 font-light max-w-3xl mx-auto">
-            Nuo gaivaus Limoncello iki sodraus Amaro – kiekvienas likeris pasakoja savo regiono istoriją.
+          <p className="text-lg md:text-xl text-charcoal/80 font-light max-w-3xl mx-auto">
+            Pasakojimai apie saldžiuosius Italijos eliksyrus.
           </p>
         </header>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {liqueursPosts.map((post, index) => (
             <BlogPostCard key={index} {...post} />
