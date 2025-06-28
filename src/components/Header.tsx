@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { LanguageContext } from '@/App';
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ isScrolled }: { isScrolled: boolean }) => {
   const { language, setLanguage } = useContext(LanguageContext);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -16,7 +16,7 @@ const LanguageSwitcher = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 text-lg font-serif font-medium text-rich-gold transition-colors duration-300 hover:text-rich-gold/80"
+        className={`flex items-center space-x-1 text-lg font-serif font-medium transition-colors duration-300 ${isScrolled ? 'text-charcoal hover:text-rich-gold' : 'text-rich-gold hover:text-rich-gold/80'}`}
       >
         <span>{language.toUpperCase()}</span>
         <ChevronDown size={20} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -89,12 +89,12 @@ const Header = () => {
               <NavLink to="/" className={`text-lg font-serif font-medium transition-colors duration-300 ${isScrolled ? 'text-charcoal hover:text-rich-gold' : 'text-rich-gold hover:text-rich-gold/80'}`}>{currentLinks.home}</NavLink>
               <a href="/#asortimentas-section" className={`text-lg font-serif font-medium transition-colors duration-300 ${isScrolled ? 'text-charcoal hover:text-rich-gold' : 'text-rich-gold hover:text-rich-gold/80'}`}>{currentLinks.assortment}</a>
               <a href="/#kontaktai-section" className={`text-lg font-serif font-medium transition-colors duration-300 ${isScrolled ? 'text-charcoal hover:text-rich-gold' : 'text-rich-gold hover:text-rich-gold/80'}`}>{currentLinks.contacts}</a>
-              <LanguageSwitcher />
+              <LanguageSwitcher isScrolled={isScrolled} />
             </nav>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-2">
-              <LanguageSwitcher />
+              <LanguageSwitcher isScrolled={isScrolled} />
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className={`p-2 rounded-md transition-colors duration-300 hover:bg-rich-gold/10 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rich-gold ${isScrolled ? 'text-charcoal' : 'text-rich-gold'}`}
