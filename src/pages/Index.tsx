@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Hero from '@/components/sections/Hero';
 import Collaboration from '@/components/sections/Collaboration';
 import HomePageAssortment from '@/components/sections/HomePageAssortment';
+import Products from '@/components/sections/Products';
 import { LanguageContext } from '@/App';
 import SEO from '@/components/SEO';
 
@@ -32,6 +33,7 @@ const Index = () => {
       />
       <main className="relative">
         <Hero />
+        <Products />
         <HomePageAssortment />
         <Collaboration />
       </main>
