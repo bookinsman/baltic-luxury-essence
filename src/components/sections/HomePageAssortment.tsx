@@ -27,7 +27,7 @@ const content = {
         { name: 'My Grappa Barrique baby', description: 'Ąžuolo statinėse brandinta grappa. Jaučiamas vanilės ir prieskonių poskonis. Mažas formatas – didelis atradimas.', volume: '200 ml', strength: '43%', image: '/My Grappa Barrique baby.png', category: 'grappa' },
         { name: 'My Grappa White Prosecco', description: 'Lengva ir gaivi, pagaminta iš Prosecco vynuogių. Švelnus gėlių ir vaisių aromatas. Puikus pasirinkimas pradedant pažintį su grappa.', volume: '500 ml', strength: '40%', image: '/My Grappa White Prosecco.png', category: 'grappa' },
         { name: 'My Grappa White Barolo', description: 'Griežtas ir solidus Barolo vynuogių charakteris. Intensyvus skonis, reikalaujantis pagarbos ir lėto mėgavimosi.', volume: '500 ml', strength: '40%', image: '/My Grappa White Barolo.png', category: 'grappa' },
-        { name: 'Dovanų rinkinys: Limoncello + 2 keraminės taurelės', description: 'Viskas, ko reikia tobulam Limoncello ritualui. Stilinga dovana, kuri pradžiugins kiekvieną itališkų skonių gerbėją.', volume: '500 ml', strength: '30%', image: '/dovana.png', category: 'gift' },
+        { name: 'Dovanų rinkinys: Limoncello + 2 keraminės taurelės', description: 'Viskas, ko reikia tobulam Limoncello ritualui. Stilinga dovana, kuri pradžiugins kiekvieną itališkų skonių gerėją.', volume: '500 ml', strength: '30%', image: '/dovana.png', category: 'gift' },
     ]
   },
   en: {
@@ -59,6 +59,49 @@ const content = {
   }
 };
 
+const AnimatedProductCard: React.FC<any> = ({ product, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <ProductCard
+        name={product.name}
+        description={product.description}
+        image={product.image}
+        volume={product.volume}
+        strength={product.strength}
+      />
+    </div>
+  );
+};
+
 const ProductSection: React.FC<{ title: string; products: any[]; introduction?: string }> = ({ title, products, introduction }) => (
   <section className="mb-20">
     <h2 className="text-4xl font-bold text-deep-navy mb-6 font-display border-l-4 border-rich-gold pl-4">
@@ -71,14 +114,7 @@ const ProductSection: React.FC<{ title: string; products: any[]; introduction?: 
     )}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {products.map((product, index) => (
-        <ProductCard
-          key={index}
-          name={product.name}
-          description={product.description}
-          image={product.image}
-          volume={product.volume}
-          strength={product.strength}
-        />
+        <AnimatedProductCard key={product.name} product={product} index={index} />
       ))}
     </div>
   </section>
@@ -127,15 +163,6 @@ const HomePageAssortment = () => {
     <div 
       id="asortimentas-section"
       className="bg-cream text-charcoal py-20 overflow-hidden"
-      style={{
-        backgroundImage: `repeating-linear-gradient(
-          45deg,
-          hsl(45, 25%, 90%),
-          hsl(45, 25%, 90%) 1px,
-          transparent 1px,
-          transparent 25px
-        )`,
-      }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-16">
@@ -167,35 +194,17 @@ const HomePageAssortment = () => {
         </header>
 
         <div className="space-y-16">
-          <div 
-            ref={el => (itemRefs.current[4] = el)}
-            className={`transition-all duration-700 ease-out ${visibleItems.includes(4) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: '600ms' }}
-          >
-            <ProductSection 
-              title={text.liqueursTitle} 
-              products={liqueurs}
-              introduction={text.liqueursIntro}
-            />
-          </div>
-          <div 
-            ref={el => (itemRefs.current[5] = el)}
-            className={`transition-all duration-700 ease-out ${visibleItems.includes(5) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: '750ms' }}
-          >
-            <ProductSection 
-              title={text.grappaTitle} 
-              products={grappas}
-              introduction={text.grappaIntro}
-            />
-          </div>
-          <div 
-            ref={el => (itemRefs.current[6] = el)}
-            className={`transition-all duration-700 ease-out ${visibleItems.includes(6) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-            style={{ transitionDelay: '900ms' }}
-          >
-            <ProductSection title={text.giftsTitle} products={gifts} />
-          </div>
+          <ProductSection 
+            title={text.liqueursTitle} 
+            products={liqueurs}
+            introduction={text.liqueursIntro}
+          />
+          <ProductSection 
+            title={text.grappaTitle} 
+            products={grappas}
+            introduction={text.grappaIntro}
+          />
+          <ProductSection title={text.giftsTitle} products={gifts} />
         </div>
       </div>
     </div>
