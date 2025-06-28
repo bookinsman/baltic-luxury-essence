@@ -1,39 +1,39 @@
+import { useContext } from 'react';
 import { ArrowDown } from 'lucide-react';
+import { LanguageContext } from '@/App';
 
-interface HeroProps {
-  language: string;
-}
+const Hero = () => {
+  const { language } = useContext(LanguageContext);
+  // To change the blur intensity, modify the value below (in pixels).
+  // A good range is typically between 0 (no blur) and 20.
+  const blurIntensity = 3;
 
-const Hero = ({ language }: HeroProps) => {
   const content = {
-    en: {
-      tagline: "BALTICA",
-      subtitle: "Heritage of Excellence",
-      description: "Discover the pinnacle of Baltic luxury. Three masterpieces born from tradition, perfected through generations.",
-      cta: "Explore Collection"
-    },
     lt: {
-      tagline: "BALTICA",
+      tagline: "Limoncello",
       subtitle: "Autentiški Skoniai iš Italijos",
       description: "Pristatome aukščiausios kokybės Grappą, Limoncellą ir kitus likerius iš garsių Italijos distilerijų",
-      cta: "Tyrinėti Kolekciją"
+      est: "Įkurta 2022"
     },
-    ru: {
-      tagline: "BALTICA",
-      subtitle: "Наследие Совершенства",
-      description: "Откройте вершину балтийской роскоши. Три шедевра, рожденные из традиций, усовершенствованные поколениями.",
-      cta: "Исследовать Коллекцию"
+    en: {
+      tagline: "Limoncello",
+      subtitle: "Authentic Flavors from Italy",
+      description: "Presenting the highest quality Grappa, Limoncello, and other liqueurs from prominent Italian distilleries.",
+      est: "Est. 2022"
     }
   };
 
-  const text = content[language as keyof typeof content] || content.en;
+  const text = content[language as keyof typeof content] || content.lt;
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background with Black Overlay */}
       <div className="absolute inset-0">
         {/* Your specific background image */}
-        <div className="absolute inset-0 bg-[url('https://cdn.pixabay.com/photo/2023/10/28/06/40/wine-8346641_1280.jpg')] bg-cover bg-center blur-sm"></div>
+        <div 
+          className="absolute inset-0 bg-[url('/background.webp')] bg-cover bg-center"
+          style={{ filter: `blur(${blurIntensity}px)` }}
+        ></div>
         
         {/* Black overlay for readability */}
         <div className="absolute inset-0 bg-black/50"></div>
@@ -65,7 +65,7 @@ const Hero = ({ language }: HeroProps) => {
         <div className="mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <div className="inline-block px-8 py-3 border border-rich-gold/40 rounded-full mb-8 backdrop-blur-sm bg-rich-gold/10">
             <span className="text-rich-gold text-sm font-medium tracking-[0.3em] uppercase">
-              Est. 2022
+              {text.est}
             </span>
           </div>
         </div>
