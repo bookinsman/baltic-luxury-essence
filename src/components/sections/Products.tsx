@@ -16,22 +16,22 @@ const Products = () => {
         {
           name: "GRAPPA DI BRUNELLO",
           type: "Premium Grappa",
-          description: "Ekstra klasės grappa, destiliuota iš Sangiovese vynuogių.",
-          details: "Išsiskiria vaisių aromatu ir vanilės bei laukinių uogų natomis",
+          description: "An extra-class grappa distilled from Sangiovese grapes.",
+          details: "Distinguished by its fruity aroma and notes of vanilla and wild berries.",
           image: "/Grappa.jpg"
         },
         {
-          name: "Žolelių Mystique",
+          name: "Herbal Mystique",
           type: "Herbal Liqueur",
-          description: "An ancient recipe featuring 27 carefully selected herbs from the pristine Baltic forests, creating an elixir of unmatched sophistication.",
-          details: "Each bottle captures the essence of Lithuanian wilderness, with notes of juniper, elderflower, and wild honey.",
+          description: "An ancient recipe featuring over 20 different herbs, plants, roots, and tree barks.",
+          details: "This digestive liqueur is best enjoyed as an aperitif with ice or as part of a cocktail.",
           image: "/liqour.jpg"
         },
         {
           name: "Citrus Royale",
           type: "Artisan Limoncello",
-          description: "Stipresnė (30% alk.) nei tradicinis limoncello, šis likeris gaminamas iš Sicilijos citrinų žievelių ir sulčių.",
-          details: "Intensyvus, bet elegantiškas - švelnios citrinų sultys harmoningai susilieja su žievelių kartumu.",
+          description: "Stronger (30% alc.) than traditional limoncello, this liqueur is made from the peels and juice of Sicilian lemons.",
+          details: "Intense yet elegant - the gentle lemon juice harmonizes perfectly with the bitterness of the peel.",
           image: "/limon.jpg"
         }
       ]
@@ -59,33 +59,6 @@ const Products = () => {
           type: "Citrinų Esencė",
           description: "Stipresnė (30% alk.) nei tradicinis limoncello, šis likeris gaminamas iš Sicilijos citrinų žievelių ir sulčių.",
           details: "Intensyvus, bet elegantiškas - švelnios citrinų sultys harmoningai susilieja su žievelių kartumu",
-          image: "/limon.jpg"
-        }
-      ]
-    },
-    ru: {
-      title: "Коллекция Мастеров",
-      subtitle: "Три Выражения Мастерства",
-      products: [
-        {
-          name: "GRAPPA DI BRUNELLO",
-          type: "Премиум Граппа",
-          description: "Граппа экстра-класса, дистиллированная из винограда Санджовезе.",
-          details: "Свидетельство нашего мастерства - эта граппа раскрывает слои ванили, меда и тонких пряных нот.",
-          image: "/Grappa.jpg"
-        },
-        {
-          name: "Травяная Мистика",
-          type: "Травяной Ликер",
-          description: "Древний рецепт с 27 тщательно отобранными травами из нетронутых балтийских лесов.",
-          details: "Каждая бутылка передает сущность литовской природы с нотами можжевельника, бузины и дикого меда.",
-          image: "/liqour.jpg"
-        },
-        {
-          name: "Королевский Цитрус",
-          type: "Артизанский Лимончелло",
-          description: "Изготовлен вручную из органических лимонов Амальфи, усовершенствован балтийской точностью.",
-          details: "Чистая элегантность в жидкой форме с яркими цитрусовыми нотами и шелковистым послевкусием.",
           image: "/limon.jpg"
         }
       ]

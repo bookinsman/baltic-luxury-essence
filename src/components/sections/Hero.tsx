@@ -12,13 +12,13 @@ const Hero = () => {
     lt: {
       tagline: "Limoncello",
       subtitle: "Autentiški Skoniai iš Italijos",
-      description: "Pristatome aukščiausios kokybės Grappą, Limoncellą ir kitus likerius iš garsių Italijos distilerijų",
+      description: "Pristatome aukščiausios kokybės Grappą, Limoncellą ir kitus likerius iš garsios <span class='text-luxury-gradient'>Inga Lorenzo</span> Itališkos distilerijos",
       est: "Įkurta 2022"
     },
     en: {
       tagline: "Limoncello",
       subtitle: "Authentic Flavors from Italy",
-      description: "Presenting the highest quality Grappa, Limoncello, and other liqueurs from prominent Italian distilleries.",
+      description: "Presenting the highest quality Grappa, Limoncello, and other liqueurs from prominent <span class='text-luxury-gradient'>Inga Lorenzo</span> Italian distillery.",
       est: "Est. 2022"
     }
   };
@@ -78,9 +78,11 @@ const Hero = () => {
           {text.subtitle}
         </h2>
         
-        <p className="text-xl md:text-2xl text-pearl/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-md animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          {text.description}
-        </p>
+        <p 
+          className="text-xl md:text-2xl text-pearl/90 mb-12 max-w-3xl mx-auto leading-relaxed font-light drop-shadow-md animate-fade-in" 
+          style={{ animationDelay: '0.8s' }}
+          dangerouslySetInnerHTML={{ __html: text.description }}
+        />
         
         <div className="mt-12 animate-fade-in" style={{ animationDelay: '1s' }}>
           <a href="#products-section" aria-label="Scroll down">
