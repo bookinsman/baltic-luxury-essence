@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 
 const allProducts = [
@@ -16,12 +16,19 @@ const allProducts = [
   { name: 'My Grappa Barrique baby', description: 'Ąžuolo statinėse brandinta grappa. Jaučiamas vanilės ir prieskonių poskonis. Mažas formatas – didelis atradimas.', volume: '200 ml', strength: '43%', image: '/My Grappa Barrique baby.png', category: 'grappa' },
   { name: 'My Grappa White Prosecco', description: 'Lengva ir gaivi, pagaminta iš Prosecco vynuogių. Švelnus gėlių ir vaisių aromatas. Puikus pasirinkimas pradedant pažintį su grappa.', volume: '500 ml', strength: '40%', image: '/My Grappa White Prosecco.png', category: 'grappa' },
   { name: 'My Grappa White Barolo', description: 'Griežtas ir solidus Barolo vynuogių charakteris. Intensyvus skonis, reikalaujantis pagarbos ir lėto mėgavimosi.', volume: '500 ml', strength: '40%', image: '/My Grappa White Barolo.png', category: 'grappa' },
-  { name: 'Dovanų rinkinys: Limoncello + 2 keraminės taurelės', description: 'Viskas, ko reikia tobulam Limoncello ritualui. Stilinga dovana, kuri pradžiugins kiekvieną itališkų skonių gerbėją.', volume: '500 ml', strength: '30%', image: '/dovana.png', category: 'gift' },
+  { name: 'Villa Serravalle Invecchiata', description: 'Brandinta ąžuolo statinėse, ši grapa pasižymi prieskonių, džiovintų vaisių, vanilės ir skrudintos medienos natomis.', volume: '700 ml', strength: '40%', image: '/Villa Serravalle Invecchiata .png', category: 'grappa' },
+  { name: 'Villa Serravalle Nebbiolo', description: 'Iš Nebbiolo vynuogių išspaudų. Vaisiškas ir išliekantis aromatas su serbentų ir laukinių uogų natomis.', volume: '700 ml', strength: '40%', image: '/Villa Serravalle Nebbiolo.png', category: 'grappa' },
+  { name: 'Maestro Cafè', description: 'Klasikinis kavos likeris su sodriu ir intensyviu espreso skoniu.', volume: '700 ml', strength: '25%', image: '/Maestro Cafè.png', category: 'liqueur' },
+  { name: 'Panarea Vodka', description: 'Pagaminta iš gryno itališko grūdų spirito, Panarea degtinė turi Viduržemio jūros regiono aromatų, kurie puikiai dera su garsiais kokteiliais, tokiais kaip Vodka Martini.', volume: '700 ml', strength: '40%', image: '/Panarea Vodka.png', category: 'panarea' },
+  { name: 'Panarea Island Gin', description: 'Citrusinis ir aštrus skonis puikiai dera su kitais alkoholiniais ir nealkoholiniais gėrimais. Alkoholio kiekis – 44%, o formulėje nėra glitimo, alergenų ar dirbtinių priedų.', volume: '700 ml', strength: '44%', image: '/Panarea Island.png', category: 'panarea' },
+  { name: 'Panarea Sunset Gin', description: 'Gomuryje iš karto išsiskiria citrinų, apelsinų ir greipfrutų natos. Čia taip pat alkoholio kiekis yra 44%, ir nėra jokių alergenų ar dirbtinių priedų.', volume: '700 ml', strength: '44%', image: '/Panarea Sunset.png', category: 'panarea' },
+  { name: 'Dovanų rinkinys: Limoncello + 2 keraminės taurelės', description: 'Viskas, ko reikia tobulam Limoncello ritualui. Stilinga dovana, kuri pradžiugins kiekvieną itališkų skonių gerėją.', volume: '500 ml', strength: '30%', image: '/dovana.png', category: 'gift' },
 ];
 
 const liqueurs = allProducts.filter(p => p.category === 'liqueur');
 const grappas = allProducts.filter(p => p.category === 'grappa');
 const gifts = allProducts.filter(p => p.category === 'gift');
+const panarea = allProducts.filter(p => p.category === 'panarea');
 
 const ProductSection: React.FC<{ title: string; products: typeof allProducts; introduction?: string }> = ({ title, products, introduction }) => (
   <section className="mb-20">
@@ -49,6 +56,16 @@ const ProductSection: React.FC<{ title: string; products: typeof allProducts; in
 );
 
 const AsortimentasPage = () => {
+  const [filter, setFilter] = useState('all');
+
+  const content = {
+    panareaIntro: "Panarea – tai salų perlas, įkvėpęs sukurti išskirtinio skonio džiną ir degtinę. Viduržemio jūros gaiva ir unikalūs ingredientai.",
+    grappaIntro: "Grappa – itališkos dvasios esmė. Kiekviena rūšis turi savo unikalų charakterį, todėl puikiai tinka prie kavos, desertų ar kaip digestivas po vakarienės. Pasidalinkite savo patirtimi!",
+    liqueursIntro: "Ne tik citrinos! Apelsinų, melionų ir šokolado likeriai įrodo, kad Italija gali nustebinti skonių įvairove. Kuris taps jūsų mėgstamiausiu?",
+  };
+
+  const filteredProducts = allProducts.filter(p => filter === 'all' || p.category === filter);
+
   return (
     <div 
       className="min-h-screen bg-cream text-charcoal"
@@ -80,12 +97,17 @@ const AsortimentasPage = () => {
           <ProductSection 
             title="Likeriai" 
             products={liqueurs}
-            introduction="Ne tik citrinos! Apelsinų, melionų ir šokolado likeriai įrodo, kad Italija gali nustebinti skonių įvairove. Kuris taps jūsų mėgstamiausiu?"
+            introduction={content.liqueursIntro}
           />
           <ProductSection 
             title="Grappa" 
             products={grappas}
-            introduction="Grappa – itališkos dvasios esmė. Kiekviena rūšis turi savo unikalų charakterį, todėl puikiai tinka prie kavos, desertų ar kaip digestivas po vakarienės. Pasidalinkite savo patirtimi!"
+            introduction={content.grappaIntro}
+          />
+          <ProductSection 
+            title="Panarea" 
+            products={panarea}
+            introduction={content.panareaIntro}
           />
           <ProductSection title="Dovanų Rinkiniai" products={gifts} />
         </div>

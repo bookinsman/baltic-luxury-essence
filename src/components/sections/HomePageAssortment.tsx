@@ -5,13 +5,15 @@ import { LanguageContext } from '@/App';
 const content = {
   lt: {
     title: "Mūsų Asortimentas",
-    headerIntro1: `"Lorenzo Inga" prekinis ženklas apima rinktinius gėrimus, kurie yra Pjemonto ir kitų Italijos regionų pasididžiavimas. Kiekvienas iš šių produktų išlaiko senovinių, iš kartos į kartą perduodamų receptų dvasią.`,
+    headerIntro1: `"Lorenzo Inga" prekinis ženklas apima rinktinius gėrimus, kurie yra Pjemonto ir kitų Italijos regionų pasididžiavimas. Kiekvienas iš šių produktų išlaiko senovinių, iš kartus į kartą perduodamų receptų dvasią.`,
     headerIntro2: `<strong>Atraskite "Baby" formatą!</strong> Miniatiūriniai buteliukai – puikus būdas išbandyti skonį be didelių įsipareigojimų. Jie taip pat yra tobula, nedidelė dovanėlė ar stalo akcentas.`,
     liqueursTitle: "Likeriai",
     liqueursIntro: "Ne tik citrinos! Apelsinų, melionų ir šokolado likeriai įrodo, kad Italija gali nustebinti skonių įvairove. Kuris taps jūsų mėgstamiausiu?",
     grappaTitle: "Grappa",
     grappaIntro: "Grappa – itališkos dvasios esmė. Kiekviena rūšis turi savo unikalų charakterį, todėl puikiai tinka prie kavos, desertų ar kaip digestivas po vakarienės. Pasidalinkite savo patirtimi!",
     giftsTitle: "Dovanų Rinkiniai",
+    panareaTitle: "Panarea",
+    panareaIntro: "Panarea – tai salų perlas, įkvėpęs sukurti išskirtinio skonio džiną ir degtinę. Viduržemio jūros gaiva ir unikalūs ingredientai.",
     products: [
         { name: 'My Limoncello', description: 'Šis tradicinis italų citrinų likeris – lyg saulėta diena Neapolio pakrantėje. Mėgaukitės atšaldytu, su ledu ar kaip kokteilių pagrindu.', volume: '500 ml', strength: '30%', image: '/My Limoncello.png', category: 'liqueur' },
         { name: 'My Limoncello baby', description: 'Mažesnis buteliukas – ta pati itališka saulė. Puikiai tinka dovanai ar tiesiog paragauti.', volume: '200 ml', strength: '30%', image: '/My Limoncello.png', category: 'liqueur' },
@@ -27,6 +29,12 @@ const content = {
         { name: 'My Grappa Barrique baby', description: 'Ąžuolo statinėse brandinta grappa. Jaučiamas vanilės ir prieskonių poskonis. Mažas formatas – didelis atradimas.', volume: '200 ml', strength: '43%', image: '/My Grappa Barrique baby.png', category: 'grappa' },
         { name: 'My Grappa White Prosecco', description: 'Lengva ir gaivi, pagaminta iš Prosecco vynuogių. Švelnus gėlių ir vaisių aromatas. Puikus pasirinkimas pradedant pažintį su grappa.', volume: '500 ml', strength: '40%', image: '/My Grappa White Prosecco.png', category: 'grappa' },
         { name: 'My Grappa White Barolo', description: 'Griežtas ir solidus Barolo vynuogių charakteris. Intensyvus skonis, reikalaujantis pagarbos ir lėto mėgavimosi.', volume: '500 ml', strength: '40%', image: '/My Grappa White Barolo.png', category: 'grappa' },
+        { name: 'Villa Serravalle Invecchiata', description: 'Distiliatas brandinamas 12 mėnesių prancūziško Limuzeno ąžuolo statinėse. Šio kruopštaus brandinimo proceso rezultatas – švelnus, gintaro spalvos brendis su vaisių, vanilės ir subtilių prieskonių užuominomis.', volume: '700 ml', strength: '40%', image: '/Villa Serravalle Invecchiata .png', category: 'grappa' },
+        { name: 'Villa Serravalle Nebbiolo', description: 'Gintaro spalvą su auksiniais atspalviais lydi intensyvus ir taninų kupinas aromatas su pikantiškos vanilės natomis.', volume: '700 ml', strength: '40%', image: '/Villa Serravalle Nebbiolo.png', category: 'grappa' },
+        { name: 'Maestro Cafè', description: 'Klasikinis kavos likeris su sodriu ir intensyviu espreso skoniu.', volume: '700 ml', strength: '25%', image: '/Maestro Cafè.png', category: 'liqueur' },
+        { name: 'Panarea Vodka', description: 'Pagaminta iš gryno itališko grūdų spirito, Panarea degtinė turi Viduržemio jūros regiono aromatų, kurie puikiai dera su garsiais kokteiliais, tokiais kaip Vodka Martini.', volume: '700 ml', strength: '40%', image: '/Panarea Vodka.png', category: 'panarea' },
+        { name: 'Panarea Island Gin', description: 'Citrusinis ir aštrus skonis puikiai dera su kitais alkoholiniais ir nealkoholiniais gėrimais. Alkoholio kiekis – 44%, o formulėje nėra glitimo, alergenų ar dirbtinių priedų.', volume: '700 ml', strength: '44%', image: '/Panarea Island.png', category: 'panarea' },
+        { name: 'Panarea Sunset Gin', description: 'Gomuryje iš karto išsiskiria citrinų, apelsinų ir greipfrutų natos. Čia taip pat alkoholio kiekis yra 44%, ir nėra jokių alergenų ar dirbtinių priedų.', volume: '700 ml', strength: '44%', image: '/Panarea Sunset.png', category: 'panarea' },
         { name: 'Dovanų rinkinys: Limoncello + 2 keraminės taurelės', description: 'Viskas, ko reikia tobulam Limoncello ritualui. Stilinga dovana, kuri pradžiugins kiekvieną itališkų skonių gerėją.', volume: '500 ml', strength: '30%', image: '/dovana.png', category: 'gift' },
     ]
   },
@@ -39,6 +47,8 @@ const content = {
     grappaTitle: "Grappa",
     grappaIntro: "Grappa is the essence of the Italian spirit. Each type has its own unique character, making it perfect with coffee, desserts, or as a digestif after dinner. Share your experience!",
     giftsTitle: "Gift Sets",
+    panareaTitle: "Panarea",
+    panareaIntro: "Panarea is the pearl of the islands, inspiring the creation of a gin and vodka of exceptional taste. Mediterranean freshness and unique ingredients.",
     products: [
         { name: 'My Limoncello', description: 'This traditional Italian lemon liqueur is like a sunny day on the coast of Naples. Enjoy it chilled, with ice, or as a base for cocktails.', volume: '500 ml', strength: '30%', image: '/My Limoncello.png', category: 'liqueur' },
         { name: 'My Limoncello baby', description: 'A smaller bottle - the same Italian sun. Perfect for a gift or just to taste.', volume: '200 ml', strength: '30%', image: '/My Limoncello.png', category: 'liqueur' },
@@ -54,6 +64,12 @@ const content = {
         { name: 'My Grappa Barrique baby', description: 'Grappa aged in oak barrels. A noticeable aftertaste of vanilla and spices. A small format - a great discovery.', volume: '200 ml', strength: '43%', image: '/My Grappa Barrique baby.png', category: 'grappa' },
         { name: 'My Grappa White Prosecco', description: 'Light and refreshing, made from Prosecco grapes. A gentle aroma of flowers and fruits. A great choice for starting your acquaintance with grappa.', volume: '500 ml', strength: '40%', image: '/My Grappa White Prosecco.png', category: 'grappa' },
         { name: 'My Grappa White Barolo', description: 'The strict and solid character of Barolo grapes. An intense taste that demands respect and slow enjoyment.', volume: '500 ml', strength: '40%', image: '/My Grappa White Barolo.png', category: 'grappa' },
+        { name: 'Villa Serravalle Invecchiata', description: 'The distillate is aged for 12 months in French Limousin oak barrels. The result of this laborious aging process is a smooth brandy, amber colored and with hints of fruit, vanilla, and delicate spices.', volume: '700 ml', strength: '40%', image: '/Villa Serravalle Invecchiata .png', category: 'grappa' },
+        { name: 'Villa Serravalle Nebbiolo', description: 'The amber color with golden hues is accompanied by an intense and tannic aroma with hints of spiced vanilla.', volume: '700 ml', strength: '40%', image: '/Villa Serravalle Nebbiolo.png', category: 'grappa' },
+        { name: 'Maestro Cafè', description: 'A classic coffee liqueur with a rich and intense espresso flavor.', volume: '700 ml', strength: '25%', image: '/Maestro Cafè.png', category: 'liqueur' },
+        { name: 'Panarea Vodka', description: 'Distilled from pure Italian grain alcohol, Panarea Vodka contains Mediterranean aromas that go well with famous cocktails such as the Vodka Martini.', volume: '700 ml', strength: '40%', image: '/Panarea Vodka.png', category: 'panarea' },
+        { name: 'Panarea Island Gin', description: 'The citrusy and spicy flavor interacts nicely with other alcoholic and non-alcoholic beverages. The alcohol content is 44% and the formula contains no gluten, allergens, or artificial additives.', volume: '700 ml', strength: '44%', image: '/Panarea Island.png', category: 'panarea' },
+        { name: 'Panarea Sunset Gin', description: 'On the palate, notes of lemon, orange and grapefruit immediately stand out. Here too, the alcohol content is 44% and there is no trace of allergens or artificial additives.', volume: '700 ml', strength: '44%', image: '/Panarea Sunset.png', category: 'panarea' },
         { name: 'Gift Set: Limoncello + 2 Ceramic Cups', description: 'Everything you need for the perfect Limoncello ritual. A stylish gift that will delight any fan of Italian flavors.', volume: '500 ml', strength: '30%', image: '/dovana.png', category: 'gift' },
     ]
   }
@@ -128,6 +144,7 @@ const HomePageAssortment = () => {
   const liqueurs = allProducts.filter(p => p.category === 'liqueur');
   const grappas = allProducts.filter(p => p.category === 'grappa');
   const gifts = allProducts.filter(p => p.category === 'gift');
+  const panarea = allProducts.filter(p => p.category === 'panarea');
 
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const itemRefs = useRef<(HTMLElement | null)[]>([]);
@@ -203,6 +220,11 @@ const HomePageAssortment = () => {
             title={text.grappaTitle} 
             products={grappas}
             introduction={text.grappaIntro}
+          />
+          <ProductSection
+            title={text.panareaTitle}
+            products={panarea}
+            introduction={text.panareaIntro}
           />
           <ProductSection title={text.giftsTitle} products={gifts} />
         </div>
