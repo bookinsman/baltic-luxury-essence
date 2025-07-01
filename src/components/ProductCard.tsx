@@ -19,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, description, image, vol
         </div>
       </CardHeader>
       <CardContent className="p-6 flex-grow">
-        <CardTitle className="font-display text-2xl text-deep-navy mb-2">{name}</CardTitle>
+        <CardTitle className="font-display text-2xl text-deep-navy mb-2" dangerouslySetInnerHTML={{ __html: name }} />
         <p className="text-charcoal/80 font-light text-sm">{description}</p>
       </CardContent>
       <CardFooter className="p-6 pt-0 mt-auto">

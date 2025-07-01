@@ -3,6 +3,7 @@ import Hero from '@/components/sections/Hero';
 import Collaboration from '@/components/sections/Collaboration';
 import HomePageAssortment from '@/components/sections/HomePageAssortment';
 import Products from '@/components/sections/Products';
+import FamilyHistory from '@/components/sections/FamilyHistory';
 import { LanguageContext } from '@/App';
 import SEO from '@/components/SEO';
 
@@ -35,6 +36,7 @@ const Index = () => {
         <Hero />
         <Products />
         <HomePageAssortment />
+        <FamilyHistory />
         <Collaboration />
       </main>
     </div>

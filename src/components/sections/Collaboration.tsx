@@ -4,11 +4,11 @@ import { LanguageContext } from '@/App';
 const content = {
   lt: {
     title: "Bendradarbiavimas",
-    description: "Dėl bendradarbiavimo kreipkitės elektroniniu paštu arba skambinkite. Mielai atsiųsime visą mūsų asortimentą ir kainas."
+    description: "Mes esame pagrindiniai Inga Lorenzo distilerijos atstovai Lietuvoje. Dėl bendradarbiavimo kreipkitės elektroniniu paštu arba skambinkite. Mielai atsiųsime visą mūsų asortimentą ir kainas."
   },
   en: {
     title: "Collaboration",
-    description: "For collaboration inquiries, please contact us via email or phone. We will be happy to send you our full range of products and prices."
+    description: "We are the main representatives of Inga Lorenzo distillery in Lithuania. For collaboration inquiries, please contact us via email or phone. We will be happy to send you our full range of products and prices."
   }
 }
 
@@ -61,9 +61,8 @@ const Collaboration = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
           style={{ transitionDelay: '200ms' }}
-        >
-          {text.description}
-        </p>
+          dangerouslySetInnerHTML={{ __html: text.description }}
+        />
       </div>
     </section>
   );

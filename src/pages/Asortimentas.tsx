@@ -12,7 +12,7 @@ const allProducts = [
   { name: 'Antico Amaro baby', description: 'Išbandykite itališkų žolelių galią mažame formate. Tas pats sodrus skonis, idealus po sočios vakarienės.', volume: '200 ml', strength: '30%', image: '/Antico Amaro di Serravalle.png', category: 'liqueur' },
   { name: 'My Cioccolo baby', description: 'Kreminis šokolado malonumas. Tirštas, saldus ir tiesiog tirpstantis burnoje – desertas, kuriam nereikia lėkštės.', volume: '200 ml', strength: '17%', image: '/My Cioccolo baby.png', category: 'liqueur' },
   { name: 'Amaretto', description: 'Saldžiųjų migdolų ir abrikosų kauliukų harmonija. Klasikinis skonis, be kurio neįsivaizduojama itališka kava ar desertas.', volume: '500 ml', strength: '28%', image: '/Amaretto.png', category: 'liqueur' },
-  { name: 'Lorenzo Inga Grappa Amarone', description: 'Pagaminta iš didingųjų Amarone vynuogių. Sodrus, kompleksiškas skonis su džiovintų vaisių natomis. Tikriems žinovams.', volume: '500 ml', strength: '40%', image: '/Lorenzo Inga Grappa Amarone.png', category: 'grappa' },
+  { name: '<span className="text-rich-gold">Lorenzo Inga</span> Grappa Amarone', description: 'Pagaminta iš didingųjų Amarone vynuogių. Sodrus, kompleksiškas skonis su džiovintų vaisių natomis. Tikriems žinovams.', volume: '500 ml', strength: '40%', image: '/Lorenzo Inga Grappa Amarone.png', category: 'grappa' },
   { name: 'My Grappa Barrique baby', description: 'Ąžuolo statinėse brandinta grappa. Jaučiamas vanilės ir prieskonių poskonis. Mažas formatas – didelis atradimas.', volume: '200 ml', strength: '43%', image: '/My Grappa Barrique baby.png', category: 'grappa' },
   { name: 'My Grappa White Prosecco', description: 'Lengva ir gaivi, pagaminta iš Prosecco vynuogių. Švelnus gėlių ir vaisių aromatas. Puikus pasirinkimas pradedant pažintį su grappa.', volume: '500 ml', strength: '40%', image: '/My Grappa White Prosecco.png', category: 'grappa' },
   { name: 'My Grappa White Barolo', description: 'Griežtas ir solidus Barolo vynuogių charakteris. Intensyvus skonis, reikalaujantis pagarbos ir lėto mėgavimosi.', volume: '500 ml', strength: '40%', image: '/My Grappa White Barolo.png', category: 'grappa' },
@@ -86,7 +86,7 @@ const AsortimentasPage = () => {
           </h1>
           <div className="w-48 h-1 bg-gradient-to-r from-transparent via-rich-gold to-transparent mx-auto my-6"></div>
           <p className="text-lg md:text-xl text-charcoal/80 font-light max-w-3xl mx-auto">
-            "Lorenzo Inga" prekinis ženklas apima rinktinius gėrimus, kurie yra Pjemonto ir kitų Italijos regionų pasididžiavimas. Kiekvienas iš šių produktų išlaiko senovinių, iš kartos į kartą perduodamų receptų dvasią.
+            "<span className='text-rich-gold'>Lorenzo Inga</span>" prekinis ženklas apima rinktinius gėrimus, kurie yra Pjemonto ir kitų Italijos regionų pasididžiavimas. Kiekvienas iš šių produktų išlaiko senovinių, iš kartos į kartą perduodamų receptų dvasią.
           </p>
           <p className="text-lg md:text-xl text-charcoal/80 font-light max-w-3xl mx-auto mt-6">
             <strong>Atraskite "Baby" formatą!</strong> Miniatiūriniai buteliukai – puikus būdas išbandyti skonį be didelių įsipareigojimų. Jie taip pat yra tobula, nedidelė dovanėlė ar stalo akcentas.
