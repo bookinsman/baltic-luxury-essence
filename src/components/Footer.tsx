@@ -86,6 +86,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-12 pt-6 border-t border-rich-gold/20 text-center text-pearl/60 font-light text-xs">
+          <p className="mb-2">Itatrading, MB | PVM: LT100017169110 | Company code: 305984606</p>
           <p>{text.copyright}</p>
         </div>
       </div>
